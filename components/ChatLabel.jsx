@@ -15,11 +15,11 @@ const ChatLabel = ({ openMenu, setOpenMenu }) => {
                     src={assets.three_dots} alt="" />
                 <div className={`absolute w-4 ${openMenu.open ? "block" : "hidden"} 
                 -right-36 top-6 bg-gray-700 rounded-xl w-max p-2`}>
-                    <div classNme="flex items-center gap-3 hover:bg-white/10 px-3 py-2 rounded-lg">
+                    <div className="flex items-center gap-3 hover:bg-white/10 px-3 py-2 rounded-lg">
                         <Image className="w-4" src={assets.pencil_icon} alt="" />
                         <p>Rename</p>
                     </div>
-                    <div classNme="flex items-center gap-3 hover:bg-white/10 px-3 py-2 rounded-lg">
+                    <div className="flex items-center gap-3 hover:bg-white/10 px-3 py-2 rounded-lg">
                         <Image className="w-4" src={assets.delete_icon} alt="" />
                         <p>Delete</p>
                     </div>
