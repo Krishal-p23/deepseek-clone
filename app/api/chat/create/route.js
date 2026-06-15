@@ -30,12 +30,12 @@ export async function POST(req) {
         return NextResponse.json({
             success: true,
             message: "Chat created",
-        })
+        });
 
     } catch (error) {
         return NextResponse.json({
             success: false,
             error: error.message,
-        })
+        });
     }
 }

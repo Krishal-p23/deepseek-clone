@@ -22,12 +22,12 @@ export async function GET(req) {
         return NextResponse.json({
             success: true,
             data,
-        })
+        });
 
     } catch (error) {
         return NextResponse.json({
             success: false,
             error: error.message,
-        })
+        });
     }
 }
