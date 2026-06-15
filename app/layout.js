@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
+import { AppContextProvider } from "@/context/AppContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,16 +21,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html
-        lang="en"
-        className={`${inter.className} ${roboto.className} h-full antialiased`}
-      >
-        <body className="min-h-full flex flex-col">
+      <AppContextProvider>
+        <html
+          lang="en"
+          className={`${inter.className} ${roboto.className} h-full antialiased`}
+        >
+          <body className="min-h-full flex flex-col">
 
-          {children}
+            {children}
 
-        </body>
-      </html>
+          </body>
+        </html>
+      </AppContextProvider>
     </ClerkProvider>
   );
 }
