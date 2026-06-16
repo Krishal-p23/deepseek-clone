@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
+import "./prism.css";
 import { AppContextProvider } from "@/context/AppContext";
 import { Toaster } from "react-hot-toast";
 
