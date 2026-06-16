@@ -27,8 +27,7 @@ const Sidebar = ({ expand, setExpand }) => {
                             alt="" />
                         <div className={`absolute w-max ${expand ? "left-1/2 -translate-x-1/2 top-12" : "-top-12 left-0"} opacity-0 group-hover:opacity-100 transition bg-black text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none`}>
                             {expand ? "Close Sidebar" : "Open Sidebar"}
-                            <div className={`w-3 h-3 absolute bg-black rotate-45 
-                                ${expand ? "left-1/2 -top-1.5 -translate-x-1/2" : "left-4 -bottom-1.5"}`}>
+                            <div className={`w-3 h-3 absolute bg-black rotate-45 ${expand ? "left-1/2 -top-1.5 -translate-x-1/2" : "left-4 -bottom-1.5"}`}>
                             </div>
                         </div>
                     </div>
