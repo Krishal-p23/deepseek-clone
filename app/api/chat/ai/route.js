@@ -39,16 +39,34 @@ export async function POST(req) {
         data.messages.push(userPrompt);
 
         // Call the DeepSeek API to get a chat completion
-        const completion = await openai.chat.completions.create({
-            messages: [{ role: "user", content: prompt }],
-            model: "deepseek-chat",
-            store: true,
-        });
+        let completion
+        try {
+            completion = await openai.chat.completions.create({
+                messages: [{ role: "user", content: prompt }],
+                model: "deepseek-chat",
+                store: true,
+            });
+            console.log("Using DeepSeek");
+        } catch (error) {
+            console.log("DeepSeek failed, switching to Groq:", error.message);
+
+            const groq = new OpenAI({
+                baseURL: "https://api.groq.com/openai/v1",
+                apiKey: process.env.GROQ_API_KEY,
+            });
+
+            completion = await groq.chat.completions.create({
+                messages: [{ role: "user", content: prompt }],
+                model: "llama-3.1-8b-instant",
+            });
+
+            console.log("Using Groq fallback");
+        }
 
         const message = completion.choices[0].message;
         message.timestamp = Date.now();
         data.messages.push(message);
-        data.save();
+        await data.save();
 
         return NextResponse.json({
             success: true,

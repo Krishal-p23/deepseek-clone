@@ -1,7 +1,7 @@
 "use client";
 import { useAuth, useUser } from "@clerk/nextjs";
 import axios from "axios";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const AppContext = createContext();
@@ -15,7 +15,7 @@ export const AppContextProvider = ({ children }) => {
     const { getToken } = useAuth();
 
     const [chats, setChats] = useState([]);
-    const [selectedChats, setSelectedChats] = useState(null);
+    const [selectedChat, setSelectedChat] = useState(null);
 
     const createNewChat = async () => {
         try {
@@ -54,10 +54,10 @@ export const AppContextProvider = ({ children }) => {
                 }
                 else {
                     // Sort chats by updated date
-                    data.data.sort((a, b) => new Date(data.updatedAt) - new Date(a.updatedAt));
+                    data.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
                     //Set recently updated chat as selected chat
-                    setSelectedChats(data.data[0]);
+                    setSelectedChat(data.data[0]);
                     console.log(data.data[0]);
                 }
             }
@@ -73,13 +73,13 @@ export const AppContextProvider = ({ children }) => {
             fetchUsersChats();
         }
     }, [user]);
-    
+
     const value = {
         user,
         chats,
         setChats,
-        selectedChats,
-        setSelectedChats,
+        selectedChat,
+        setSelectedChat,
         fetchUsersChats,
         createNewChat,
     }
