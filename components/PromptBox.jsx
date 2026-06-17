@@ -22,6 +22,11 @@ const PromptBox = ({ isLoading, setIsLoading }) => {
 
         try {
             e.preventDefault();
+
+            if (!prompt.trim()) {
+                return toast.error("No prompt found");
+            }
+
             if (!user) return toast.error("Login to send message");
             if (isLoading) return toast.error("Wait for the previous prompt response");
 
@@ -120,8 +125,7 @@ const PromptBox = ({ isLoading, setIsLoading }) => {
                 </div>
                 <div className="flex items-center gap-2">
                     <Image className="w-4" src={assets.pin_icon} alt="" />
-                    <button className={`${prompt ? "bg-primary" : "bg-[#71717a]"}
-                    rounded-full p-2 cursor-pointer`}>
+                    <button className={`${prompt ? "bg-primary" : "bg-[#71717a]"} rounded-full p-2 cursor-pointer`}>
                         <Image className="w-3.5 aspect-square"
                             src={prompt ? assets.arrow_icon : assets.arrow_icon_dull}
                             alt="" />

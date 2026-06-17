@@ -12,7 +12,7 @@ export default function Home() {
   const [expand, setExpand] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { selectedChat } = useAppContext();
+  const { selectedChat, createNewChat } = useAppContext();
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -36,9 +36,16 @@ export default function Home() {
         <Sidebar expand={expand} setExpand={setExpand} />
         <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 bg-[#292a2d] text-white relative">
           <div className="md:hidden absolute px-4 top-6 flex items-center justify-between w-full">
-            <Image onClick={() => (expand ? setExpand(false) : setExpand(true))}
-              className="rotate-180" src={assets.menu_icon} alt="" />
-            <Image className="opacity-70" src={assets.chat_icon} alt="" />
+            <div className="flex items-center justify-center hover:bg-gray-500/20 transition-all duration-300 h-9 w-9 aspect-square rounded-lg cursor-pointer">
+              <Image onClick={() => (expand ? setExpand(false) : setExpand(true))}
+                className="rotate-180"
+                src={assets.menu_icon} alt="" />
+            </div>
+            <div className="flex items-center justify-center hover:bg-gray-500/20 transition-all duration-300 h-9 w-9 aspect-square rounded-lg cursor-pointer">
+              <Image onClick={() => createNewChat()}
+                className="opacity-70"
+                src={assets.chat_icon} alt="" />
+            </div>
           </div>
 
           {messages.length === 0 ? (
@@ -80,6 +87,6 @@ export default function Home() {
 
         </div>
       </div>
-    </div>
+    </div >
   );
 }
