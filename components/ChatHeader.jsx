@@ -10,7 +10,7 @@ const ChatHeader = ({ expand, setExpand }) => {
     const [openMenu, setOpenMenu] = useState({ id: 0, open: false });
 
     return (
-        <div className="h-12 w-full border-b border-white/10 bg-[#292a2d]">
+        <div className="shrink-0 h-14 w-full border-b border-white/10 bg-[#292a2d]">
             <div className="h-full flex items-center justify-between px-4">
                 <div className={`${expand ? "hidden" : "block"} flex items-center justify-center md:hidden hover:bg-gray-500/20 transition-all duration-300 h-9 w-9 aspect-square rounded-lg cursor-pointer`}>
                     <Image className="rotate-180"
@@ -26,10 +26,11 @@ const ChatHeader = ({ expand, setExpand }) => {
                                 name={selectedChat.name}
                                 openMenu={openMenu}
                                 setOpenMenu={setOpenMenu}
+                                textSize="text-base"
                             />
                         </div>
                     ) : (
-                        <p className="text-sm text-gray-400 font-medium">
+                        <p className="text-base text-gray-400 font-medium">
                             New Chat
                         </p>
                     )}

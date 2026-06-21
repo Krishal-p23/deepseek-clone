@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import toast from 'react-hot-toast'
 
-const ChatLabel = ({ openMenu, setOpenMenu, id, name }) => {
+const ChatLabel = ({ openMenu, setOpenMenu, id, name, textSize = "text-sm" }) => {
 
     const { fetchUsersChats, chats, setSelectedChat } = useAppContext();
 
@@ -51,7 +51,7 @@ const ChatLabel = ({ openMenu, setOpenMenu, id, name }) => {
     }
 
     return (
-        <div className="flex items-center justify-between gap-3 p-2 text-white/80 hover:bg-white/10 rounded-lg text-sm group cursor-pointer"
+        <div className={`flex items-center justify-between gap-3 p-2 text-white/80 hover:bg-white/10 rounded-lg ${textSize} group cursor-pointer`}
             onClick={selectChat}>
             <p className="group-hover:max-w-5/6 truncate">
                 {name}
