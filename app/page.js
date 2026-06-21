@@ -1,5 +1,7 @@
 'use client';
 import { assets } from "@/assets/assets";
+import ChatHeader from "@/components/ChatHeader";
+import ChatLabel from "@/components/ChatLabel";
 import Message from "@/components/Message";
 import PromptBox from "@/components/PromptBox";
 import Sidebar from "@/components/Sidebar";
@@ -12,7 +14,7 @@ export default function Home() {
   const [expand, setExpand] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { selectedChat, createNewChat } = useAppContext();
+  const { selectedChat } = useAppContext();
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -34,32 +36,20 @@ export default function Home() {
     <div>
       <div className="flex h-screen">
         <Sidebar expand={expand} setExpand={setExpand} />
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 bg-[#292a2d] text-white relative">
-          <div className="md:hidden absolute px-4 top-6 flex items-center justify-between w-full">
-            <div className="flex items-center justify-center hover:bg-gray-500/20 transition-all duration-300 h-9 w-9 aspect-square rounded-lg cursor-pointer">
-              <Image onClick={() => (expand ? setExpand(false) : setExpand(true))}
-                className="rotate-180"
-                src={assets.menu_icon} alt="" />
-            </div>
-            <div className="flex items-center justify-center hover:bg-gray-500/20 transition-all duration-300 h-9 w-9 aspect-square rounded-lg cursor-pointer">
-              <Image onClick={() => createNewChat()}
-                className="opacity-70"
-                src={assets.chat_icon} alt="" />
-            </div>
-          </div>
+        <div className="flex-1 min-w-0 flex flex-col items-center justify-center px-4 pb-8 bg-[#292a2d] text-white relative">
+          <ChatHeader expand={expand} setExpand={setExpand} />
 
           {messages.length === 0 ? (
-            <>
+            <div className="flex-1 flex flex-col items-center justify-center px-4">
               <div className="flex items-center gap-3">
                 <Image className="h-16" src={assets.logo_icon} alt="" />
                 <p className="text-2xl font-medium">Hi, I'm DeepSeek.</p>
               </div>
               <p className="text-sm mt-2">How can I help you today?</p>
-            </>
+            </div>
           ) : (
             <div className="relative flex flex-col items-center justify-center w-full mt-20 max-h-screen overflow-y-auto"
               ref={containerRef}>
-              <p className="fixed top-8 border border-transparent hover:border-gray-500/50 py-1 px-2 rounded-lg font-semibold mb-6">{selectedChat.name}</p>
               {messages.map((msg, idx) => (
                 <Message key={idx} role={msg.role} content={msg.content} />
               ))}
