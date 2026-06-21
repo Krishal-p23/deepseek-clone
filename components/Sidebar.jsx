@@ -32,7 +32,7 @@ const Sidebar = ({ expand, setExpand }) => {
                         </div>
                     </div>
                 </div>
-                <button className={`mt-8 flex items-center justify-center cursor-pointer ${expand ? "bg-primary hover:opacity-90 rounded-2xl gap-2 p-2.5 w-max" : "group relative h-9 w-9 mx-auto hover:bg-gray-500/30 rounded-lg"}`}
+                <button className={`mt-8 flex items-center justify-center mx-auto cursor-pointer ${expand ? "bg-primary hover:opacity-90 rounded-2xl gap-2 p-2.5 w-max" : "group relative h-9 w-9 hover:bg-gray-500/30 rounded-lg"}`}
                     onClick={createNewChat}>
                     <Image className={expand ? "w-6" : "w-7"}
                         src={expand ? assets.chat_icon : assets.chat_icon_dull}
@@ -51,7 +51,7 @@ const Sidebar = ({ expand, setExpand }) => {
             </div>
             <div>
                 <div>
-                    <div className={`flex items-center cursor-pointer group relative ${expand ? "gap-1 text-white/80 text-sm p-2.5 border border-primary rounded-lg hover:bg-white/10 cursor-pointer" : "h-10 w-10 mx-auto hover:bg-gray-500/30 rounded-lg"}`}>
+                    <div className={`flex items-center cursor-pointer group relative ${expand ? "gap-5 !font-medium text-white/80 text-sm p-2.5 border border-primary rounded-lg hover:bg-white/10 cursor-pointer" : "h-10 w-10 mx-auto hover:bg-gray-500/30 rounded-lg"}`}>
                         <Image className={expand ? "w-5" : "w-6.5 mx-auto"}
                             src={expand ? assets.phone_icon : assets.phone_icon_dull}
                             alt="" />
@@ -71,10 +71,21 @@ const Sidebar = ({ expand, setExpand }) => {
                 </div>
                 <div className={`flex items-center ${expand ? "hover:bg-white/10 rounded-lg" : "justify-center w-full"} gap-3 text-white/60 text-sm p-2 mt-2 cursor-pointer`}
                     onClick={user ? null : openSignIn}>
-                    {user ? <UserButton />
-                        : <Image className="w-7"
-                            src={assets.profile_icon} alt="" />}
-                    {expand && <span>My Profile</span>}
+                    {user ? <UserButton
+                        showName={expand}
+                        appearance={{
+                            elements: {
+                                rootBox: "w-full",
+                                userButtonTrigger: "w-full flex justify-start hover:bg-white/10 rounded-lg p-2",
+                                userButtonBox: "!flex !flex-row-reverse gap-3 w-full items-center",
+                                userButtonOuterIdentifier: "!text-white/80 !text-sm !font-medium",
+                                avatarBox: "w-7 h-7"
+                            },
+                        }} />
+                        : <>
+                            <Image className="w-7" src={assets.profile_icon} alt="" />
+                            {expand && <span>My Profile</span>}
+                        </>}
                 </div>
             </div>
 
