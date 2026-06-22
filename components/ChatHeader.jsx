@@ -26,7 +26,7 @@ const ChatHeader = ({ expand, setExpand }) => {
                                 name={selectedChat.name}
                                 openMenu={openMenu}
                                 setOpenMenu={setOpenMenu}
-                                textSize="text-base"
+                                isHeader={true}
                             />
                         </div>
                     ) : (
