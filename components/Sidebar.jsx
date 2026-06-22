@@ -12,8 +12,8 @@ const Sidebar = ({ expand, setExpand }) => {
     const [openMenu, setOpenMenu] = useState({ id: 0, open: false });
 
     return (
-        <div className={`flex flex-col justify-between bg-[#212327] pt-7 transition-all z-50 max-md:absolute max-md:h-screen ${expand ? "p-4 w-64" : "md:w-20 w-0 max-md:overflow-hidden"}`}>
-            <div>
+        <div className={`flex flex-col bg-[#212327] pt-7 transition-all z-50 max-md:absolute max-md:h-screen ${expand ? "p-4 w-64" : "md:w-20 w-0 max-md:overflow-hidden"} h-screen min-h-0`}>
+            <div className="flex flex-col flex-1 min-h-0">
                 <div className={`flex ${expand ? "flex-row gap-10" : "flex-col items-center gap-8"}`}>
                     <Image className={expand ? "w-36" : "w-10"}
                         src={expand ? assets.logo_text : assets.logo_icon}
@@ -44,12 +44,16 @@ const Sidebar = ({ expand, setExpand }) => {
                     {expand && <p className="text-white text font-medium">New Chat</p>}
                 </button>
 
-                <div className={`mt-8 text-white/25 text-sm ${expand ? "block" : "hidden"}`}>
-                    <p className="my-1">Recents</p>
-                    {chats.map((chat, idx) => <ChatLabel key={idx} name={chat.name} id={chat._id} openMenu={openMenu} setOpenMenu={setOpenMenu} />)}
+                <div className={`mt-8 text-white/25 text-sm flex-1 min-h-0 overflow-y-auto overflow-x-hidden ${expand ? "block" : "hidden"} custom-scrollbar`}>
+                    <div className="px-2 text-white/25 text-sm">
+                        <p className="my-1">Recents</p>
+                    </div>
+                    <div className="flex flex-col gap-1 px-2 pb-4">
+                        {chats.map((chat, idx) => <ChatLabel key={idx} name={chat.name} id={chat._id} openMenu={openMenu} setOpenMenu={setOpenMenu} />)}
+                    </div>
                 </div>
             </div>
-            <div>
+            <div className="shrink-0 mt-auto">
                 <div>
                     <div className={`flex items-center cursor-pointer group relative ${expand ? "gap-5 !font-medium text-white/80 text-sm p-2.5 border border-primary rounded-lg hover:bg-white/10 cursor-pointer" : "h-10 w-10 mx-auto hover:bg-gray-500/30 rounded-lg"}`}>
                         <Image className={expand ? "w-5" : "w-6.5 mx-auto"}
