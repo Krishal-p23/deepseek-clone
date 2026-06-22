@@ -28,28 +28,47 @@ It supports real-time chat, persistent history, authentication, and AI-generated
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- ⚛️ Next.js 16
-- ⚛️ React 19
-- 🎨 Tailwind CSS
-- 🧩 PrismJS (code highlighting)
-- 📝 React Markdown + remark-gfm
+### 🎨 Frontend
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,tailwind"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/PrismJS-Code_Highlighting-purple?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/React_Markdown-Markdown_Renderer-orange?style=for-the-badge"/>
+</p>
 
-### Backend
-- 🟢 Node.js (Next API Routes)
-- 🍃 MongoDB + Mongoose
-- 🤖 OpenAI API
-- 🤖 Groq API
+---
 
-### Auth & Infrastructure
-- 🔐 Clerk Authentication
-- 🪝 Clerk Webhooks (user sync handling)
-- ☁️ Vercel (deployment)
+### 🧠 Backend
 
-### Utilities
-- 📡 Axios (API requests)
-- 🔔 React Hot Toast (notifications)
-- 🔧 ESLint (linting)
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nodejs,mongodb"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Mongoose-ODM_Library-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/OpenAI-000000?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Groq-AI_Inference-FF6B00?style=for-the-badge"/>
+</p>
+
+---
+
+### 🔐 Auth & Infrastructure
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=vercel"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Clerk-Auth_&_User_Management-3B82F6?style=for-the-badge"/>
+</p>
+
+---
+
+### 🔧 Utilities
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Axios-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/React_Hot_Toast-Toast_Notifications-red?style=for-the-badge"/>
+</p>
 
 ---
 
@@ -160,7 +179,14 @@ Then add environment variables in the Vercel dashboard.
 
 ## 🤝 Connect with Me
 
-👤 Developer
+I am always open to collaboration, research discussions, and learning opportunities in Machine Learning, AI, and Full Stack Development.
 
-💼 LinkedIn: https://linkedin.com/in/krishal-p23
-📧 Email: prasad.krishal23@gmail.com
+<p align="center">
+  <a href="mailto:prasad.krishal23@gmail.com">
+    <img src="https://skillicons.dev/icons?i=gmail" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/krishal-p23">
+    <img src="https://skillicons.dev/icons?i=linkedin" />
+  </a>
+</p> 
