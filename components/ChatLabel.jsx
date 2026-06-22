@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import toast from 'react-hot-toast'
 
-const ChatLabel = ({ openMenu, setOpenMenu, id, name, textSize = "text-sm" }) => {
+const ChatLabel = ({ openMenu, setOpenMenu, id, name, isHeader = false }) => {
 
     const { fetchUsersChats, chats, selectedChat, setSelectedChat } = useAppContext();
     const menuRef = useRef(null);
@@ -27,6 +27,7 @@ const ChatLabel = ({ openMenu, setOpenMenu, id, name, textSize = "text-sm" }) =>
     }, [openMenu]);
 
     const selectChat = () => {
+        if (isHeader) return;
         const chatData = chats.find(chat => chat._id === id)
         setSelectedChat(chatData)
         console.log(chatData)
@@ -90,7 +91,7 @@ const ChatLabel = ({ openMenu, setOpenMenu, id, name, textSize = "text-sm" }) =>
     };
 
     return (
-        <div className={`flex items-center justify-between gap-3 p-2 text-white/80 rounded-lg ${textSize} ${isSelected ? "bg-white/10" : "hover:bg-white/10"} group cursor-pointer`}
+        <div className={`flex items-center justify-between gap-3 p-2 text-white/80 rounded-lg ${isHeader ? "text-base hover:bg-white/10" : (isSelected ? "bg-white/10" : "hover:bg-white/10")} group cursor-pointer`}
             onClick={selectChat}>
             <p className="group-hover:max-w-5/6 truncate">
                 {name}
