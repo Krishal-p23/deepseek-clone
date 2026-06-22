@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 DeepSeek Clone
 
-## Getting Started
+A full-stack AI chat application inspired by DeepSeek, built with **Next.js**, powered by **OpenAI / Groq APIs**, secured with **Clerk Authentication**, and backed by **MongoDB (Mongoose)**.
 
-First, run the development server:
+It supports real-time chat, persistent history, authentication, and AI-generated responses with clean UI/UX.
+
+---
+
+## 🚀 Live Demo
+
+🌐 Vercel Deployment:  
+👉 https://deepseek-clone-five-black.vercel.app
+
+---
+
+## ✨ Features
+
+- 💬 AI Chat interface (DeepSeek / Groq powered responses)
+- 🔐 Authentication with Clerk (Google / Email login)
+- 🧠 Persistent chat history (MongoDB)
+- ⚡ Fast streaming-ready architecture
+- 📂 Chat creation, rename & delete functionality
+- 📱 Responsive UI (mobile + desktop)
+- 🎨 Clean Tailwind UI design
+- 🪝 Clerk Webhooks integration for user sync
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- ⚛️ Next.js 16
+- ⚛️ React 19
+- 🎨 Tailwind CSS
+- 🧩 PrismJS (code highlighting)
+- 📝 React Markdown + remark-gfm
+
+### Backend
+- 🟢 Node.js (Next API Routes)
+- 🍃 MongoDB + Mongoose
+- 🤖 OpenAI API
+- 🤖 Groq API
+
+### Auth & Infrastructure
+- 🔐 Clerk Authentication
+- 🪝 Clerk Webhooks (user sync handling)
+- ☁️ Vercel (deployment)
+
+### Utilities
+- 📡 Axios (API requests)
+- 🔔 React Hot Toast (notifications)
+- 🔧 ESLint (linting)
+
+---
+
+## 📦 Installation (Run Locally)
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/krishal-p23/deepseek-clone.git
+cd deepseek-clone
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Setup environment variables
+
+Create a `.env.local` file in the root of your project:
+
+```env
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# Clerk Auth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_secret
+
+# Clerk Webhook
+CLERK_WEBHOOK_SECRET=your_webhook_secret
+
+# AI APIs
+OPENAI_API_KEY=your_openai_key
+GROQ_API_KEY=your_groq_key
+
+# App URL
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+### 4️⃣ Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Your app will start at:
+`http://localhost:3000`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Database (MongoDB + Mongoose)
 
-## Learn More
+This project uses MongoDB Atlas with Mongoose ORM for:
 
-To learn more about Next.js, take a look at the following resources:
+- User chat storage
+- Chat sessions
+- Message history
+- CRUD operations (create / rename / delete chats)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔐 Authentication (Clerk)
 
-## Deploy on Vercel
+I used Clerk for:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- User login / signup
+- Session handling
+- Secure API protection
+- Webhook-based user sync into MongoDB
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🪝 Webhooks
+
+Clerk webhooks are used to:
+
+- Automatically create user records in MongoDB
+- Sync user updates
+- Handle user deletion events
+
+---
+
+## 🤖 AI Integration
+
+This project supports multiple AI providers:
+
+- OpenAI API 🤖
+- Groq API ⚡ (faster inference)
+
+You can switch or extend models easily inside API routes.
+
+---
+
+## 🚀 Deployment (Vercel)
+
+This project is deployed using Vercel.
+
+👉 Live URL: `https://deepseek-clone-five-black.vercel.app`
+
+To deploy your own:
+```bash
+vercel
+```
+Then add environment variables in the Vercel dashboard.
+
+---
+
+## 🤝 Connect with Me
+
+👤 Developer
+
+💼 LinkedIn: https://linkedin.com/in/krishal-p23
+📧 Email: prasad.krishal23@gmail.com
